@@ -2,9 +2,7 @@ http = require('http')
 
 
 module.exports = (robot) ->
-  reportPongStatus = (msg, successMsg, failMsg) ->
-    canPong = false
-
+  pongRoomAvailable = (callback) ->
     http.get 'http://pingpongping.cfapps.io/activity', (response) ->
       body = ''
       response.on 'data', (chunk)->
@@ -17,14 +15,19 @@ module.exports = (robot) ->
         for activity in pongResponse
           activePongs++ if activity.active
 
-        canPong = true if activePongs < 5
-        if canPong
-          msg.reply successMsg
-        else
-          msg.reply failMsg
+        callback(activePongs < 5)
 
-  robot.hear /^\s*can (i|we) pong\s*\?*\s*$/i, (msg) ->
-   reportPongStatus(msg, 'Yes you can!', "No you can't")
+
+  robot.respond /\s*can (i|we) pong\s*\?*\s*$/i, (msg) ->
+    pongRoomAvailable (available) ->
+      if available
+        msg.reply 'Yes you can!'
+      else
+        msg.reply "Sorry, no pong for you."
 
   robot.hear /^\s*\d for pong\s*\?*\s*$/i, (msg) ->
-    reportPongStatus(msg, 'The pong room is open!', 'Sorry, the pong room is occupied.')
+    pongRoomAvailable (available) ->
+      if available
+        msg.send 'The pong room is open!'
+      else
+        msg.send 'Sorry, the pong room is occupied.'
