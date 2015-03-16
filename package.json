@@ -5,6 +5,7 @@
   "author": "twhitney@pivotal.io",
   "description": "Denver Labs Hubot",
   "dependencies": {
+    "htmlparser": "^1.7.7",
     "hubot": "^2.11.0",
     "hubot-diagnostics": "0.0.1",
     "hubot-google-images": "^0.1.2",
@@ -18,7 +19,12 @@
     "hubot-scripts": "^2.5.16",
     "hubot-shipit": "^0.1.1",
     "hubot-slack": "^3.2.1",
-    "hubot-youtube": "^0.1.2"
+    "hubot-youtube": "^0.1.2",
+    "scraper": "0.0.9",
+    "soupselect": "^0.2.0",
+    "underscore": "^1.8.2",
+    "underscore.string": "^3.0.3",
+    "xml2js": "^0.4.6"
   },
   "engines": {
     "node": "0.10.x"

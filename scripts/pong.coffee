@@ -1,6 +1,5 @@
 http = require('http')
 
-
 module.exports = (robot) ->
   pongRoomAvailable = (callback) ->
     http.get 'http://pingpongping.cfapps.io/activity', (response) ->
@@ -30,4 +29,4 @@ module.exports = (robot) ->
       if available
         msg.send 'The pong room is open!'
       else
-        msg.send 'Sorry, the pong room is occupied.'
+        msg.reply 'Sorry, the pong room is occupied.'

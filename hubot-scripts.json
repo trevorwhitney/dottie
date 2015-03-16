@@ -1,1 +1,21 @@
-[]
+[
+  "ackbar.coffee",
+  "advice.coffee",
+  "applause.coffee",
+  "archer.coffee",
+  "ascii.coffee",
+  "auto-stache.coffee",
+  "aww.coffee",
+  "bang-bang.coffee",
+  "base64.coffee",
+  "bitly.coffee",
+  "brewerydb.coffee",
+  "carlton.coffee",
+  "weather.coffee",
+  "whos-turn.coffee",
+  "wikipedia.coffee",
+  "xkcd.coffee",
+  "scotch.coffee",
+  "octocat.coffee",
+  "kittens.coffee"
+]
